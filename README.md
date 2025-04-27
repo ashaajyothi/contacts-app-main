@@ -1,6 +1,6 @@
 # ContactsApp
 
-This is the Demo app for Pluralsight's Angular Reactive Forms course.
+This is Angular Reactive Forms application.
 
 ## Development server
 
