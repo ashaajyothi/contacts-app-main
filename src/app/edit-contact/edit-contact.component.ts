@@ -1,31 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ContactsService } from '../contacts/contacts.service';
 import {Router} from '@angular/router';
+import { phoneTypeValues, addressTypeValues } from '../contacts/contact.model';  
+import { restrictedWords, restrictedWords1 } from '../validators/restricted-words.validator';
 
 @Component({
   templateUrl: './edit-contact.component.html',
   styleUrls: ['./edit-contact.component.css']
 })
 export class EditContactComponent implements OnInit {
+  phoneTypes = phoneTypeValues;
+  addressTypes = addressTypeValues;
   contactForm = this.fb.nonNullable.group({
     id: '',
-    firstName : '',
+    personal: false,
+    firstName : ['', [Validators.required, Validators.minLength(3)]], //new FormControl('', Validators.required),
     lastName : '',
-    dateOfBirth : <Date | null> null,
+    dateOfBirth : '',
     favoritesRanking : <number | null> null,
     phone: this.fb.nonNullable.group({
       phoneNumber: '',
       phoneType: '',
     }),
     address: this.fb.nonNullable.group({
-      streetAddress: '',
-      city : '',
-      state: '',
-      postalCode: '',
+      streetAddress: ['', Validators.required],
+      city : ['', Validators.required],
+      state: ['', Validators.required],
+      postalCode: ['', Validators.required],
       addressType: '',
-    })
+    }),
+    //notes: ['', restrictedWords]
+    notes: ['', restrictedWords1(['foo','bar'])]
   });
   
   /*firstName = new FormControl();
@@ -70,6 +77,14 @@ export class EditContactComponent implements OnInit {
     })
   }
 
+  get firstName(){
+    return this.contactForm.controls.firstName;
+  }
+
+  get notes(){
+    return this.contactForm.controls.firstName;
+  }
+
   saveContact() {
     this.contactsService.saveContact(this.contactForm.getRawValue()).subscribe({next: () => this.router.navigate(['/contacts'])});
     console.log(this.contactForm.controls.firstName.value)
@@ -79,3 +94,7 @@ export class EditContactComponent implements OnInit {
     console.log(this.contactForm.controls.phone.controls.phoneNumber.value);
   }
 }
+function firstName() {
+  throw new Error('Function not implemented.');
+}
+
