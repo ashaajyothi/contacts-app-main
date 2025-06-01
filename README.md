@@ -2,6 +2,11 @@
 
 This is Angular Reactive Forms application.
 
+![image](https://github.com/user-attachments/assets/752abef5-711f-4680-8a86-6e422dca6484)
+
+![image](https://github.com/user-attachments/assets/f4658a1c-bbcb-48c8-9f78-6236e2d3cb5e)
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
