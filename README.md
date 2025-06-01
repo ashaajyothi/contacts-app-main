@@ -3,8 +3,8 @@
 This is Angular Reactive Forms application.
 
 ![image](https://github.com/user-attachments/assets/752abef5-711f-4680-8a86-6e422dca6484)
+![image](https://github.com/user-attachments/assets/468fb5f4-a4e1-4764-9f49-97e0f1f6cfef)
 
-![image](https://github.com/user-attachments/assets/f4658a1c-bbcb-48c8-9f78-6236e2d3cb5e)
 
 
 ## Development server
